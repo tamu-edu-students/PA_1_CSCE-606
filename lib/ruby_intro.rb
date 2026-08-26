@@ -108,6 +108,24 @@ class BookInStock
     @isbn = isbn
     @price= price 
   end
+  
+  def isbn=(new_isbn)
+    if new_isbn == ""
+      raise ArgumentError
+    end
+
+    @isbn = new_isbn
+
+  end
+
+  def price=(new_price)
+    if new_price <= 0
+      raise ArgumentError
+    end
+
+    @price = new_price
+
+  end
 
   def price_as_string
     return "$%.2f" % @price
